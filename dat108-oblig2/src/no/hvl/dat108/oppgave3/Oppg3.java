@@ -1,8 +1,10 @@
 package no.hvl.dat108.oppgave3;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import no.hvl.dat108.common.Ansatt;
 import no.hvl.dat108.common.Kjonn;
@@ -51,7 +53,30 @@ public class Oppg3 {
 		System.out.println("Oppg 3d: Liste av ansatte etter lønndøkning:");
 		Util.skrivUtAlle(ansatte);
 		
+		// Oppgave 3e - Ansatte som tjener mer enn 800.000,-
 		
-
+		boolean tjenerMer = ansatte.stream()
+				.anyMatch(a -> (a.getAarslonn() > 800000));
+		System.out.println("Oppg 3e: Finnes det ansatte som tjener mer enn kr 800.000?:\n" + tjenerMer + "\n");
+		
+		// Oppgave 3f - Skriv ut alle de ansatte med System.out.println() uten å bruke løkke.
+		
+		System.out.println("Oppg 3f: Utskrift uten løkke:");
+		ansatte.stream()
+			.forEach(System.out::println);
+		System.out.println("");
+		
+		// Oppgave 3g - Finn den/de ansatte som har lavest lønn.
+		Ansatt ansattMinstLonn = ansatte.stream()
+				.min(Comparator.comparing(Ansatt::getAarslonn))
+				.orElse(null);
+		System.out.println("Oppg 3g: Ansatt med minst lønn:\n" + ansattMinstLonn + "\n");
+		
+		// Oppgave 3h - Summen av alle heltall i [1, 1000> som er delelig med 3 eller 5
+		System.out.println("Oppg 3h: Summen av alle heltall i [1, 1000> som er delelig med 3 eller 5:");
+		int sum = IntStream.range(1, 1000)
+			.filter(x -> (x%3 == 0) || (x%5 == 0))
+			.sum();
+		System.out.println(sum);
 	}
 }
