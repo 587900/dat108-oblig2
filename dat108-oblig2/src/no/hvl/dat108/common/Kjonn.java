@@ -1,4 +1,4 @@
-package no.hvl.dat108.oppgave2;
+package no.hvl.dat108.common;
 
 public enum Kjonn {
 	

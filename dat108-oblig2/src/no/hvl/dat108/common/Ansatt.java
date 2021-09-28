@@ -1,4 +1,4 @@
-package no.hvl.dat108.oppgave2;
+package no.hvl.dat108.common;
 
 public class Ansatt {
 	
@@ -17,6 +17,18 @@ public class Ansatt {
 		this.aarslonn = aarslonn;
 	}
 
+	public String getEtternavn() {
+		return etternavn;
+	}
+	
+	public Kjonn getKjonn() {
+		return kjonn;
+	}
+	
+	public String getStilling() {
+		return stilling;
+	}
+	
 	public int getAarslonn() {
 		return aarslonn;
 	}
